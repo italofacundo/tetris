@@ -539,13 +539,11 @@ function atualizarRanking() {
   console.log("Jogadores ordenados: ");
   console.log(jogadoresOrdenados.slice(0, 5));
 
-  adicionarTexto(`RANKING<br>
-  ${jogadoresOrdenados[0].nome} ${jogadoresOrdenados[0].pontuacao}<br>
-  ${jogadoresOrdenados[1].nome} ${jogadoresOrdenados[1].pontuacao}<br>
-  ${jogadoresOrdenados[2].nome} ${jogadoresOrdenados[2].pontuacao}<br>
-  ${jogadoresOrdenados[3].nome} ${jogadoresOrdenados[3].pontuacao}<br>
-  ${jogadoresOrdenados[4].nome} ${jogadoresOrdenados[4].pontuacao}
-  `);
+  adicionarTexto(`<br>RANKING`);
+
+  for (let i = 0; i < 5; i++) {
+    adicionarTexto(`${jogadoresOrdenados[i].nome} ${jogadoresOrdenados[i].pontuacao}`);
+  }
 }
 
 function contarPontos(linhasRemovidas) {
