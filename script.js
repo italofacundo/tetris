@@ -319,6 +319,7 @@ function moverAbaixo() {
   } else {
     // Se colidir
     travarPeca();
+    tocarEfeitoSonoro(1);
     gerarPeca();
     return true;
   }
@@ -444,6 +445,8 @@ function travarPeca() {
 
 function finalizarJogo() {
   fimDeJogo = true;
+  document.getElementById("musicaTema").pause();
+  document.getElementById("gameOver").play();
   exibirEstatisticas();
   atualizarRanking();
 }
@@ -573,6 +576,7 @@ function contarPontos(linhasRemovidas) {
 
 function progredir() {
   linhasRemovidas++;
+  tocarEfeitoSonoro(2);
   document.getElementById("linhas").innerText = linhasRemovidas;
   console.log({ linhasRemovidas });
 
@@ -635,15 +639,19 @@ function controlarPeca(evento) {
 
   if (tecla == 37) {
     moverEsquerda();
+    tocarEfeitoSonoro(1);
     inicioDescida = Date.now();
   } else if (tecla == 38) {
     rodarPeca();
+    tocarEfeitoSonoro(1);
     inicioDescida = Date.now();
   } else if (tecla == 39) {
     moverDireita();
+    tocarEfeitoSonoro(1);
     inicioDescida = Date.now();
   } else if (tecla == 40) {
     moverAbaixo();
+    tocarEfeitoSonoro(1);
     pontosTotais++;
     document.getElementById("score").innerText = pontosTotais;
     console.log("+1 ponto (descida rápida)");
@@ -654,6 +662,7 @@ function controlarPeca(evento) {
     console.log(`+${pontuacaoAdicionada} pontos (descida instantânea)`);
   } else if (tecla == 90) {
     rodarPecaInverso();
+    tocarEfeitoSonoro(1);
     inicioDescida = Date.now();
   }
 }
@@ -662,3 +671,14 @@ function adicionarTexto(texto) {
   let textoAdicionado = `<br>${texto}`;
   document.getElementById("game-container").innerHTML += textoAdicionado;
 }
+
+function tocarEfeitoSonoro(efeito) { 
+  switch (efeito) {
+    case 1:
+      document.getElementById("efeito").play();
+      break;
+    case 2:
+      document.getElementById("removerLinha").play(); 
+      break;
+  }
+} 
