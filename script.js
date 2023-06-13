@@ -156,20 +156,20 @@ const Z = [
 ];
 
 const PECAS = [
-  [Z, "black"],
-  [S, "black"],
-  [T, "black"],
-  [O, "black"],
-  [L, "black"],
-  [I, "black"],
-  [J, "black"],
+    [Z, "blue"],
+    [S, "white"],
+    [T, "red"],
+    [O, "green"],
+    [L, "brown"],
+    [I, "pink"],
+    [J, "yellow"]
 ];
 
 const LINHA = 20;
 const COLUNA = 10;
-const TAMANHO = 20;
+const TAMANHO = 30;
 
-const VAGO = "white"; // Cor de fundo
+const VAGO = "black"; // Cor de fundo
 
 var peca;
 var tabuleiro = []; // Vetor 2D (Matriz)

@@ -6,10 +6,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="icon" href="favicon.png">
 </head>
 <body>
-  <canvas id="tela" width="200" height="400"></canvas>
+  <div id="painel-esquerdo">
+    <div id="score-container">Score<div id="score">0</div></div>
+    <div id="nivel-container">Nível<div id="nivel">0</div></div>
+    <div id="linhas-container">Linhas<div id="linhas">0</div></div>
+  </div>
+  <div id="game-container">
+    <canvas width="300" height="600" id="tela"></canvas>
+  </div>
+  <div id="painel-direito"></div>
+  <div id="mensagem"></div>
+  
+  <div id="game-over" class="text-center">
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
