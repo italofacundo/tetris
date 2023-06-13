@@ -664,15 +664,3 @@ function adicionarTexto(texto) {
   let textoAdicionado = `<br>${texto}`;
   document.getElementById("game-container").innerHTML += textoAdicionado;
 }
-
-
-// let aux;
-// for (let i = 0; i < vetor.length - 1; i++) {
-//   for (let j = 0; j < vetor.length - 1; j++) {
-//     if (vetor[j+1] < vetor[j]) {
-//       aux = vetor[j+1];
-//       vetor[j+1] = vetor[j];
-//       vetor[j] = aux;
-//     }
-//   }
-// }
