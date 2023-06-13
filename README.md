@@ -1,0 +1,1 @@
+Projeto final da disciplina de Raciocínio Lógico e Algorítmico, do curso de Ciência da Computação da Universidade de Fortaleza (UNIFOR).
