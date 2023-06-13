@@ -520,11 +520,22 @@ function atualizarRanking() {
 
   localStorage.setItem("jogadoresLS", JSON.stringify(jogadores));
 
-  var jogadoresOrdenados = jogadores.sort((a, b) => {
-    var diferenca = b.pontuacao - a.pontuacao;
-    if (diferenca === 0) return a.sequencia - b.sequencia;
-    return diferenca;
-  }); // TROCAR POR MÉTODO DE ORDENAÇAO VISTO EM SALA DE AULA
+  function ordenarJogadores(jogadores) {
+    for(let i = 0; i < jogadores.length; i++){
+        for(let j = 0; j < jogadores.length - i - 1; j++){
+            let diferenca = jogadores[j].pontuacao - jogadores[j + 1].pontuacao;
+            if(diferenca < 0 || (diferenca === 0 && jogadores[j].sequencia > jogadores[j + 1].sequencia)){
+                let temp = jogadores[j];
+                jogadores[j] = jogadores[j+1];
+                jogadores[j+1] = temp;
+            }
+        }
+    }
+    return jogadores;
+  }
+
+  let jogadoresOrdenados = ordenarJogadores(jogadores);
+
   console.log("Jogadores ordenados: ");
   console.log(jogadoresOrdenados.slice(0, 5));
 
@@ -653,3 +664,15 @@ function adicionarTexto(texto) {
   let textoAdicionado = `<br>${texto}`;
   document.getElementById("game-container").innerHTML += textoAdicionado;
 }
+
+
+// let aux;
+// for (let i = 0; i < vetor.length - 1; i++) {
+//   for (let j = 0; j < vetor.length - 1; j++) {
+//     if (vetor[j+1] < vetor[j]) {
+//       aux = vetor[j+1];
+//       vetor[j+1] = vetor[j];
+//       vetor[j] = aux;
+//     }
+//   }
+// }
