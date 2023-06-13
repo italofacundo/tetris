@@ -2,6 +2,7 @@
      Jogo: Tetris
      Autor: Code Explained (www.codeexplained.org)
      Adaptado por: Gilson Filho
+     Modificado por: Italo Araújo e Davi Silveira
   */
 
 const I = [
@@ -155,14 +156,18 @@ const Z = [
   ],
 ];
 
+// const PECAS = [
+//     [Z, "blue"],
+//     [S, "white"],
+//     [T, "red"],
+//     [O, "green"],
+//     [L, "brown"],
+//     [I, "pink"],
+//     [J, "yellow"]
+// ];
+
 const PECAS = [
-    [Z, "blue"],
-    [S, "white"],
-    [T, "red"],
-    [O, "green"],
-    [L, "brown"],
-    [I, "pink"],
-    [J, "yellow"]
+    [O, "green"]
 ];
 
 const LINHA = 20;
@@ -527,16 +532,20 @@ function contarPontos(linhasRemovidas) {
 
   var pontosAdicionados = pontos * nivel;
   pontosTotais += pontosAdicionados;
-  if (pontos)
+  if (pontos) {
+    document.getElementById("score").innerText = pontosTotais;
     console.log(`+${pontosAdicionados} pontos! Pontos totais: ${pontosTotais}`);
+  }
 }
 
 function progredir() {
   linhasRemovidas++;
+  document.getElementById("linhas").innerText = linhasRemovidas;
   console.log({ linhasRemovidas });
 
   if (linhasRemovidas % 10 === 0) {
     nivel = linhasRemovidas / 10 + 1;
+    document.getElementById("nivel").innerText = nivel;
     console.log(`Subindo de nível! Você está no nível ${nivel}`);
   }
 }
@@ -603,13 +612,19 @@ function controlarPeca(evento) {
   } else if (tecla == 40) {
     moverAbaixo();
     pontosTotais++;
+    document.getElementById("score").innerText = pontosTotais;
     console.log("+1 ponto (descida rápida)");
   } else if (tecla == 32) {
     pontuacaoAdicionada = 2 * moverFim();
     pontosTotais += pontuacaoAdicionada;
+    document.getElementById("score").innerText = pontosTotais;
     console.log(`+${pontuacaoAdicionada} pontos (descida instantânea)`);
   } else if (tecla == 90) {
     rodarPecaInverso();
     inicioDescida = Date.now();
   }
+}
+
+function atualizarScore(texto) {
+    document.getElementById("score").innerText = score;
 }
