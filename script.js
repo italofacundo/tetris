@@ -310,6 +310,7 @@ function descerPeca() {
 }
 
 function moverAbaixo() {
+  if (fimDeJogo) return;
   if (!colisao(0, 1, peca.tetraminoAtivo)) {
     // Se não colidir
     apagarPeca();
@@ -396,6 +397,7 @@ function preencherPeca(cor) {
 }
 
 function travarPeca() {
+  if (fimDeJogo) return;
   var linhasRemovidasDeUmaVez = 0;
 
   for (var i = 0; i < peca.tetraminoAtivo.length; i++) {
@@ -463,6 +465,15 @@ function exibirEstatisticas() {
 	L: ${contagemL} vezes
 	I: ${contagemI} vezes
 	J: ${contagemJ} vezes`);
+
+  document.getElementById("game-container").innerText = `GAME OVER
+	Z: ${contagemZ}
+	S: ${contagemS}
+	T: ${contagemT}
+	O: ${contagemO}
+	L: ${contagemL}
+	I: ${contagemI}
+	J: ${contagemJ}`;
 }
 
 function atualizarRanking() {
@@ -516,6 +527,14 @@ function atualizarRanking() {
   }); // TROCAR POR MÉTODO DE ORDENAÇAO VISTO EM SALA DE AULA
   console.log("Jogadores ordenados: ");
   console.log(jogadoresOrdenados.slice(0, 5));
+
+  adicionarTexto(`RANKING<br>
+  ${jogadoresOrdenados[0].nome} ${jogadoresOrdenados[0].pontuacao}<br>
+  ${jogadoresOrdenados[1].nome} ${jogadoresOrdenados[1].pontuacao}<br>
+  ${jogadoresOrdenados[2].nome} ${jogadoresOrdenados[2].pontuacao}<br>
+  ${jogadoresOrdenados[3].nome} ${jogadoresOrdenados[3].pontuacao}<br>
+  ${jogadoresOrdenados[4].nome} ${jogadoresOrdenados[4].pontuacao}
+  `);
 }
 
 function contarPontos(linhasRemovidas) {
@@ -630,7 +649,7 @@ function controlarPeca(evento) {
   }
 }
 
-function atualizarScore(texto) {
-    document.getElementById("score").innerText = score;
+function adicionarTexto(texto) {
+  let textoAdicionado = `<br>${texto}`;
+  document.getElementById("game-container").innerHTML += textoAdicionado;
 }
-

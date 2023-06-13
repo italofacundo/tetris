@@ -26,12 +26,13 @@ body {
     justify-content: center;
     width: 300px; /* Largura do canvas */
     height: 600px; /* Altura do canvas */
-}
-
-#tela {
+    font-family: 'm5x7';
+    font-size: 36px;
+    color: white;
     border: 8px solid red;
     border-left: 2px solid red;
     border-right: 2px solid red;
+    text-align: center;
 }
 
 #mensagem {
