@@ -1,0 +1,43 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+body {
+background: rgb(0, 0, 0);
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#game-container {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 400px; /* Largura do canvas */
+height: 600px; /* Altura do canvas */
+}
+
+#game {
+border: 2px solid rgb(255, 0, 0);
+}
+
+#mensagem {
+font-size: 24px;
+color: white;
+text-align: center;
+background-color: black;
+padding: 10px;
+}
+
+#info {
+position: absolute;
+right: calc(100% + 10px);
+top: 50%;
+transform: translateY(-50%);
+color: white;
+font-size: 24px;
+}
