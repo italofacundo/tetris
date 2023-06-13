@@ -156,19 +156,19 @@ const Z = [
   ],
 ];
 
-// const PECAS = [
-//     [Z, "blue"],
-//     [S, "white"],
-//     [T, "red"],
-//     [O, "green"],
-//     [L, "brown"],
-//     [I, "pink"],
-//     [J, "yellow"]
-// ];
-
 const PECAS = [
-    [O, "green"]
+    [Z, "blue"],
+    [S, "white"],
+    [T, "red"],
+    [O, "green"],
+    [L, "brown"],
+    [I, "pink"],
+    [J, "yellow"]
 ];
+
+// const PECAS = [
+//     [O, "green"]
+// ];
 
 const LINHA = 20;
 const COLUNA = 10;
@@ -281,6 +281,11 @@ function exibirProximasPecas() {
         return "J";
     }
   };
+
+  document.getElementById("painel-direito").innerHTML = `PRÓXIMAS<br>PEÇAS
+  <img src="assets/pieces/${converterPecaEmTexto(proximasPecas[1])}.png" alt="Peça ${converterPecaEmTexto(proximasPecas[1])}">
+  <img src="assets/pieces/${converterPecaEmTexto(proximasPecas[2])}.png" alt="Peça ${converterPecaEmTexto(proximasPecas[2])}">
+  <img src="assets/pieces/${converterPecaEmTexto(proximasPecas[3])}.png" alt="Peça ${converterPecaEmTexto(proximasPecas[3])}">`
 
   var pecaAtual = converterPecaEmTexto(proximasPecas[0]);
   var pecasSeguintes = proximasPecas.slice(1).map(converterPecaEmTexto);
@@ -628,3 +633,4 @@ function controlarPeca(evento) {
 function atualizarScore(texto) {
     document.getElementById("score").innerText = score;
 }
+
