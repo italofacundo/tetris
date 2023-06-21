@@ -13,5 +13,5 @@ Recursos visuais e sonoros
 Sistema de pontuação e progressão de níveis  
 Exibição das próximas peças  
 Sistema de ranking, armazenado localmente no navegador  
-Estatística das peças utilizadas
+Estatística das peças utilizadas  
 Controles de queda e rotação adicionados
