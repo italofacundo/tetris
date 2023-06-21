@@ -12,6 +12,6 @@ Espaço: queda instantânea
 Recursos visuais e sonoros  
 Sistema de pontuação e progressão de níveis  
 Exibição das próximas peças  
-Ranking armazenado localmente no navegador  
+Sistema de ranking, armazenado localmente no navegador  
 Estatística das peças utilizadas
 Controles de queda e rotação adicionados
